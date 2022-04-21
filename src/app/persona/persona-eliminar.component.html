@@ -1,0 +1,13 @@
+<form class="example-form" [formGroup]="personaForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ID</mat-label>
+      <input type="number" matInput formControlName="id" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="personaForm.controls['id'].hasError('required')">
+        ID es <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="onClickEliminar()" class="demo-button" [disabled]="!personaForm.valid">
+      Eliminar
+    </button>
+  </form>

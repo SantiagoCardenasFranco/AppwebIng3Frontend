@@ -1,0 +1,21 @@
+<form class="example-form" [formGroup]="tamanoForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="tamanoForm.controls['nombre'].hasError('required')">
+        Nombre es <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Especificación</mat-label>
+      <input type="text" matInput formControlName="especificacion" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="tamanoForm.controls['especificacion'].hasError('required')">
+        Especificación es <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button (click)="onClickCrear()" class="demo-button" [disabled]="!tamanoForm.valid">
+      Crear
+    </button>
+  </form>

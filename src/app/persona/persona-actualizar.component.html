@@ -1,0 +1,45 @@
+<form class="example-form" [formGroup]="personaForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ID</mat-label>
+      <input type="number" matInput formControlName="id" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="personaForm.controls['id'].hasError('required')">
+        ID es <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="personaForm.controls['nombre'].hasError('required')">
+          Nombre es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="apellido" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="personaForm.controls['apellido'].hasError('required')">
+          Apellido es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input type="text" matInput formControlName="correo" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="personaForm.controls['correo'].hasError('required')">
+          Correo es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="text" matInput formControlName="password" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="personaForm.controls['password'].hasError('required')">
+          Password es <strong>obligatorio</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button (click)="onClicActualizar()" class="demo-button" [disabled]="!personaForm.valid">
+        Actualizar
+      </button>
+    </form>
