@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import {TamanosEspecificacion} from './tamano';
 
@@ -20,7 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './tamano-listar.component.html',
   styleUrls: ['./tamano.component.scss']
 })
-export class TamanoListarComponent implements OnInit {
+export class TamanoListarComponent  {
 
   tamanoForm = new FormGroup({
     nombre : new FormControl('', [Validators.required]),
@@ -38,8 +38,6 @@ export class TamanoListarComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
    }
 
-   ngOnInit(): void {
-  }
 
   onlistar() {
     this.tamanoSerive.getAll().subscribe(respuesta => {

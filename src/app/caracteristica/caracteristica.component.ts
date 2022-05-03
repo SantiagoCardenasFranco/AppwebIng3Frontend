@@ -6,10 +6,7 @@ import { TamanosEspecificacion } from '../tamano/tamano';
   templateUrl: './caracteristica.component.html',
   styleUrls: ['./caracteristica.component.scss']
 })
-export class CaracteristicaComponent implements OnInit {
+export class CaracteristicaComponent {
 
   constructor() { }
-  ngOnInit(): void {
-  }
-
 }

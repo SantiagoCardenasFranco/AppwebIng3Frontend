@@ -6,10 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './bar-tamano.component.html',
   styleUrls: ['./bar-tamano.component.scss']
 })
-export class BarTamanoComponent implements OnInit {
+export class BarTamanoComponent {
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 }

@@ -20,7 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './tamano-eliminar.component.html',
   styleUrls: ['./tamano.component.scss']
 })
-export class TamanoEliminarComponent implements OnInit {
+export class TamanoEliminarComponent {
 
   tamanoForm = new FormGroup({
     id: new FormControl('', [Validators.required])
@@ -37,8 +37,6 @@ export class TamanoEliminarComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
    }
 
-   ngOnInit(): void {
-  }
 
   onClickEliminar(){
     this.tamanoSerive.remove(this.tamanoForm.value).subscribe(respuesta =>{

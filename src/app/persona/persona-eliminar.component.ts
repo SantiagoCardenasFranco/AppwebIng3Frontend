@@ -22,7 +22,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './persona-eliminar.component.html',
   styleUrls: ['./persona.component.scss']
 })
-export class PersonaEliminarComponent implements OnInit {
+export class PersonaEliminarComponent  {
 
   personaForm = new FormGroup({
     id : new FormControl('', [Validators.required])
@@ -39,8 +39,6 @@ export class PersonaEliminarComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
   
-  ngOnInit(): void {
-  }
 
   onClickEliminar(){
     this.personaService.remove(this.personaForm.value).subscribe(respuesta =>{

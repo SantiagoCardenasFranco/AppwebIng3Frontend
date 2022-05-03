@@ -5,13 +5,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent {
 
   constructor() {
   }
-  
-  ngOnInit(): void {
-  }
-
 
 }

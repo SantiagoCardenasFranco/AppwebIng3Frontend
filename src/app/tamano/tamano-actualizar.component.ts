@@ -21,7 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './tamano-actualizar.component.html',
   styleUrls: ['./tamano.component.scss']
 })
-export class TamanoActualizarComponent implements OnInit {
+export class TamanoActualizarComponent {
 
   tamanoForm = new FormGroup({
     id: new FormControl('', [Validators.required]),
@@ -40,8 +40,6 @@ export class TamanoActualizarComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
    }
 
-   ngOnInit(): void {
-  }
 
   onClicActualizar(){
     this.tamanoSerive.put(this.tamanoForm.value).subscribe(respuesta =>{

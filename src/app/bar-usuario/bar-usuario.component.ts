@@ -6,11 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './bar-usuario.component.html',
   styleUrls: ['./bar-usuario.component.scss']
 })
-export class BarUsuarioComponent implements OnInit {
+export class BarUsuarioComponent {
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
 }

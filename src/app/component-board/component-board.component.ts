@@ -10,6 +10,4 @@ export class ComponentBoardComponent {
   constructor(private router: Router) {
   }
   
-  ngOnInit(): void {
-  }
 }
