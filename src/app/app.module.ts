@@ -27,6 +27,7 @@ import { BarProductoGeneralComponent } from './bar-producto-general/bar-producto
 import { TamanoListarComponent } from './tamano/tamano-listar.component';
 import { TamanoEliminarComponent } from './tamano/tamano-eliminar.component';
 import { TamanoActualizarComponent } from './tamano/tamano-actualizar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { TamanoActualizarComponent } from './tamano/tamano-actualizar.component'
     BarProductoGeneralComponent,
     TamanoListarComponent,
     TamanoEliminarComponent,
-    TamanoActualizarComponent
+    TamanoActualizarComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
