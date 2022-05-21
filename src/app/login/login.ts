@@ -1,4 +1,14 @@
-export interface Login {
-    nombre: string;
-    password: string;
+export class Login implements Respuesta
+{
+    nombre:String = "";
+    password:String = "";
+
+  constructor()
+  {
+
+  }
+    valor!: String;
+}
+export interface Respuesta {
+    valor:String;
 }

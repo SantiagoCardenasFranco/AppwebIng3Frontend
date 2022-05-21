@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Persona } from './persona';
+import { JwtInterceptor } from '../jwt.interceptor';
+import { LoginService } from '../login/login.service';
 
-const urlApi = 'http://localhost:8080/api/usuarios';
+const urlApi = 'http://localhost:8888/api/usuarios';
 
 //Access-Control-Allow-Origin: http://localhost:8080/api/usuario;
 @Injectable({
@@ -15,6 +17,7 @@ export class PersonaService {
 
   getAll() : Observable<Persona> {
     return this.http.get<Persona>(urlApi);
+    
   }
 
   add(usuario: Persona) {

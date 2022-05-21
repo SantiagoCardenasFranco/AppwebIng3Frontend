@@ -20,6 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  login:Login = new Login();
 
   loginForm = new FormGroup({
     nombre : new FormControl('', [Validators.required]),
@@ -38,9 +39,18 @@ export class LoginComponent {
   }
   
 
-  onClickCrear() : void {
-    this.loginService.add(this.loginForm.value).subscribe(respuesta => {
-      this.notification.open('Creación exitosa');
+  onIniciarSesion() : void {
+
+    this.login.nombre=this.loginForm.get('nombre')?.value;
+    this.login.password=this.loginForm.get('password')?.value;
+    
+    this.loginService.add(this.login).subscribe(respuesta => {
+      let token = respuesta.valor;
+      window.localStorage.setItem("token", token as string);
+      window.location.href = '/listarUsuario';
     });
+
   }
+
+
 }

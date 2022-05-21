@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TamanosEspecificacion } from './tamano';
 
-const urlApi = 'http://localhost:8080/api/tamanos';
+const urlApi = 'http://localhost:8888/api/tamanos';
 //const urlApi2 = '';
 @Injectable({
   providedIn: 'root'

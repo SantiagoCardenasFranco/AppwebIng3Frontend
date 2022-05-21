@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Producto } from './producto';
 
-const urlApi = 'http://localhost:8080/api/productos';
+const urlApi = 'http://localhost:8888/api/productos';
 @Injectable({
   providedIn: 'root'
 })

@@ -28,6 +28,9 @@ import { TamanoListarComponent } from './tamano/tamano-listar.component';
 import { TamanoEliminarComponent } from './tamano/tamano-eliminar.component';
 import { TamanoActualizarComponent } from './tamano/tamano-actualizar.component';
 import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './jwt.interceptor';
+import {HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AutorizacionGuard } from './autorizacion.guard';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { LoginComponent } from './login/login.component';
   providers: [{
     provide: ErrorHandler,
     useClass: GlobalErrorHandler,
-  }],
+  },
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  AutorizacionGuard,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
