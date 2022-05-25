@@ -25,15 +25,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class PersonaListarComponent implements OnInit {
 
   personaForm = new FormGroup({
+    id : new FormControl('', [Validators.required]),
     nombre : new FormControl('', [Validators.required]),
     apellido : new FormControl('', [Validators.required]),
     correo : new FormControl('', [Validators.required]),
-    password : new FormControl('', [Validators.required])
+    opciones : new FormControl('', [Validators.required])
   });
 
   matcher = new MyErrorStateMatcher();
 
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'password'];
+  displayedColumns: string[] = ['id','nombre', 'apellido', 'correo', 'opciones'];
   dataSource: any;
 
   @ViewChild(MatTable) table!: MatTable<Persona>;
@@ -44,6 +45,14 @@ export class PersonaListarComponent implements OnInit {
   
   ngOnInit(): void {
     this.listar();
+  }
+
+  eliminar(){
+    this.personaService.remove(this.personaForm.value).subscribe((data)=>{
+      this.listar();
+    }, (error)=>{
+      alert('Ocurrio un error');
+    });
   }
 
  listar() {

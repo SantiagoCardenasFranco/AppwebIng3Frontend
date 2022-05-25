@@ -15,6 +15,8 @@ import { TamanoListarComponent } from './tamano/tamano-listar.component';
 import { TamanoEliminarComponent } from './tamano/tamano-eliminar.component';
 import { TamanoActualizarComponent } from './tamano/tamano-actualizar.component';
 import { LoginComponent } from './login/login.component';
+import { BarNegocioComponent } from './bar-negocio/bar-negocio.component';
+import { CaracteristicaListarComponent } from './caracteristica/caracteristica-listar.component'; 
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -31,7 +33,10 @@ const routes: Routes = [
   {path: 'Listartamanos', component: TamanoListarComponent},
   {path: 'Eliminartamanos', component: TamanoEliminarComponent},
   {path: 'Actualizartamanos', component: TamanoActualizarComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'barraNegocio', component: BarNegocioComponent},
+  {path: 'barraProducto', component: BarProductoGeneralComponent},
+  {path: 'listarCaracteristica', component: CaracteristicaListarComponent}
 ];
 
 @NgModule({

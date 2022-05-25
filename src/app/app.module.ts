@@ -31,6 +31,8 @@ import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './jwt.interceptor';
 import {HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AutorizacionGuard } from './autorizacion.guard';
+import { BarNegocioComponent } from './bar-negocio/bar-negocio.component';
+import { CaracteristicaListarComponent } from './caracteristica/caracteristica-listar.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { AutorizacionGuard } from './autorizacion.guard';
     TamanoListarComponent,
     TamanoEliminarComponent,
     TamanoActualizarComponent,
-    LoginComponent
+    LoginComponent,
+    BarNegocioComponent,
+    CaracteristicaListarComponent
 
   ],
   imports: [

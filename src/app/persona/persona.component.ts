@@ -22,7 +22,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './persona.component.html',
   styleUrls: ['./persona.component.scss']
 })
-export class PersonaComponent  {
+export class PersonaComponent implements OnInit {
 
   personaForm = new FormGroup({
     nombre : new FormControl('', [Validators.required]),
@@ -40,6 +40,8 @@ export class PersonaComponent  {
 
   constructor(private personaService: PersonaService, private notification: MatSnackBar) {
     this.dataSource = new MatTableDataSource();
+  }
+  ngOnInit(): void {
   }
   
 
