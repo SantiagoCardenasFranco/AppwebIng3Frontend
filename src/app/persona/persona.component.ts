@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Persona} from './persona';
 import { PersonaService } from './persona.service';
@@ -22,7 +22,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './persona.component.html',
   styleUrls: ['./persona.component.scss']
 })
-export class PersonaComponent implements OnInit {
+export class PersonaComponent {
 
   personaForm = new FormGroup({
     nombre : new FormControl('', [Validators.required]),
@@ -40,8 +40,6 @@ export class PersonaComponent implements OnInit {
 
   constructor(private personaService: PersonaService, private notification: MatSnackBar) {
     this.dataSource = new MatTableDataSource();
-  }
-  ngOnInit(): void {
   }
   
 
