@@ -1,7 +1,7 @@
 <form class="example-form" [formGroup]="loginForm">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Nombre</mat-label>
-      <input type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher">
+      <input id="nombre-login" type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher">
       <mat-error *ngIf="loginForm.controls['nombre'].hasError('required')">
         Nombre es <strong>obligatorio</strong>
       </mat-error>
@@ -9,13 +9,13 @@
     <br>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher">
+      <input id="password-login" type="password" matInput formControlName="password" [errorStateMatcher]="matcher">
       <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
         Password es <strong>obligatorio</strong>
       </mat-error>
     </mat-form-field>
     <br>
-    <button mat-raised-button (click)="onIniciarSesion()" class="demo-button" [disabled]="!loginForm.valid">
+    <button mat-raised-button [disabled]="false" (click)="onIniciarSesion()" class="demo-button">
       Ingresar
     </button>
   </form>
