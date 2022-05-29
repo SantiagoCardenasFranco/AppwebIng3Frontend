@@ -47,7 +47,7 @@ export class CaracteristicaComponent implements OnInit{
   
   
   ngOnInit(): void {
-    this.caracteristicaSerive.getAll().subscribe(respuesta => {
+    this.caracteristicaSerive.getAllCaracteristica().subscribe(respuesta => {
       this.dataSource = respuesta;
       this.table.renderRows();
 

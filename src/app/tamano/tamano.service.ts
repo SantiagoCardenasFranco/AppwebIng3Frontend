@@ -12,6 +12,10 @@ export class TamanoService {
 
   constructor(private http: HttpClient) { }
 
+  empUrl(): any{
+    return urlApi;
+  }
+
   getAll() : Observable<TamanosEspecificacion> {
     return this.http.get<TamanosEspecificacion>(urlApi);
   }

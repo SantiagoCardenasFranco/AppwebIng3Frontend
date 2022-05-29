@@ -33,6 +33,7 @@ import {HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AutorizacionGuard } from './autorizacion.guard';
 import { BarNegocioComponent } from './bar-negocio/bar-negocio.component';
 import { CaracteristicaListarComponent } from './caracteristica/caracteristica-listar.component';
+import { ProductoListarComponent } from './productos/producto-listar.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CaracteristicaListarComponent } from './caracteristica/caracteristica-l
     TamanoActualizarComponent,
     LoginComponent,
     BarNegocioComponent,
-    CaracteristicaListarComponent
+    CaracteristicaListarComponent,
+    ProductoListarComponent
 
   ],
   imports: [

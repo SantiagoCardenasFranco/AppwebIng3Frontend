@@ -7,6 +7,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { CaracteristicaService } from './caracteristica.service';
+import { forkJoin } from 'rxjs';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,17 +23,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class CaracteristicaListarComponent  {
 
-  tamanoForm = new FormGroup({
+  caracteristicaForm = new FormGroup({
     marca : new FormControl('', [Validators.required]),
     descripcion : new FormControl('', [Validators.required]),
-    nombre : new FormControl('', [Validators.required]),
-    especificacion : new FormControl('', [Validators.required]),
+    idTamano : new FormControl('', [Validators.required]),
     proveedor : new FormControl('', [Validators.required])
   });
 
   matcher = new MyErrorStateMatcher();
 
-  displayedColumns: string[] = ['marca', 'descripcion', 'nombre','especificacion', 'proveedor'];
+  displayedColumns: string[] = ['marca', 'descripcion', 'idTamano', 'proveedor'];
   dataSource: any;
 
   @ViewChild(MatTable) table!: MatTable<Caracteristica>;
@@ -43,9 +43,12 @@ export class CaracteristicaListarComponent  {
 
 
   onlistar() {
-    this.caracteristicaSerive.getAll().subscribe(respuesta => {
-      this.dataSource = respuesta;
-      this.table.renderRows();
-    });
+
+    forkJoin([this.caracteristicaSerive.getAllCaracteristica, this.caracteristicaSerive.getAllTamano])
+    .subscribe(data => {
+      this.caracteristicaSerive.getAllCaracteristica;
+      this.caracteristicaSerive.getAllTamano;
+    })
   }
+
 }

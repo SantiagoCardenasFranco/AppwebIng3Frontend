@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { Persona} from './persona';
-import { PersonaService } from './persona.service';
+import { Producto } from './producto';
+import { ProductoService } from './producto.service'; 
 
 import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
@@ -18,28 +18,24 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-persona',
-  templateUrl: './persona-listar.component.html',
-  styleUrls: ['./persona.component.scss']
+  selector: 'app-producto',
+  templateUrl: './producto-listar.component.html',
+  styleUrls: ['./productos.component.scss']
 })
-export class PersonaListarComponent implements OnInit {
+export class ProductoListarComponent implements OnInit {
 
-  personaForm = new FormGroup({
-    id : new FormControl('', [Validators.required]),
+  productoForm = new FormGroup({
     nombre : new FormControl('', [Validators.required]),
-    apellido : new FormControl('', [Validators.required]),
-    correo : new FormControl('', [Validators.required]),
-    opciones : new FormControl('', [Validators.required])
   });
 
   matcher = new MyErrorStateMatcher();
 
-  displayedColumns: string[] = ['id','nombre', 'apellido', 'correo', 'opciones'];
+  displayedColumns: string[] = ['nombre'];
   dataSource: any;
 
-  @ViewChild(MatTable) table!: MatTable<Persona>;
+  @ViewChild(MatTable) table!: MatTable<Producto>;
 
-  constructor(private personaService: PersonaService, private notification: MatSnackBar) {
+  constructor(private productoService: ProductoService, private notification: MatSnackBar) {
     this.dataSource = new MatTableDataSource();
   }
   
@@ -47,8 +43,8 @@ export class PersonaListarComponent implements OnInit {
     this.listar();
   }
 
- listar() {
-    this.personaService.getAll().subscribe(respuesta => {
+  listar() {
+    this.productoService.getAll().subscribe(respuesta => {
       this.dataSource = respuesta;
       this.table.renderRows();
     });

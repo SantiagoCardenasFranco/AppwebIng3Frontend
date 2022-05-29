@@ -1,10 +1,9 @@
-import { NumberSymbol } from "@angular/common";
 import { TamanosEspecificacion } from "../tamano/tamano";
 
-export interface Caracteristica {
-    id:Number,
-    marca: string,
-    descripcion: string;
-    tamano: TamanosEspecificacion;
-    proveedor: string;
+
+export class Caracteristica {
+    id:Number = 0;
+    marca: string = "";
+    descripcion: string = "";
+    proveedor: string = "";
 }
