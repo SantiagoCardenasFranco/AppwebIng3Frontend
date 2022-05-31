@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import {TamanosEspecificacion} from './tamano';
 
@@ -20,16 +20,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './tamano-listar.component.html',
   styleUrls: ['./tamano.component.scss']
 })
-export class TamanoListarComponent  {
+export class TamanoListarComponent implements OnInit {
 
   tamanoForm = new FormGroup({
+    id : new FormControl('', [Validators.required]),
     nombre : new FormControl('', [Validators.required]),
     especificacion : new FormControl('', [Validators.required])
   });
 
   matcher = new MyErrorStateMatcher();
 
-  displayedColumns: string[] = ['nombre', 'especificacion'];
+  displayedColumns: string[] = ['id', 'nombre', 'especificacion'];
   dataSource: any;
 
   @ViewChild(MatTable) table!: MatTable<TamanosEspecificacion>;
@@ -37,6 +38,11 @@ export class TamanoListarComponent  {
   constructor(private tamanoSerive: TamanoService, private notification: MatSnackBar) {
     this.dataSource = new MatTableDataSource();
    }
+
+
+   ngOnInit(): void {
+    this.onlistar();
+  }
 
 
   onlistar() {

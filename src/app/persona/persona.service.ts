@@ -15,6 +15,10 @@ export class PersonaService {
 
   constructor(private http: HttpClient) { }
 
+  empUrl(): any{
+    return urlApi;
+  }
+
   getAll() : Observable<Persona> {
     return this.http.get<Persona>(urlApi);
     

@@ -47,8 +47,10 @@ export class LoginComponent {
     this.loginService.add(this.login).subscribe(respuesta => {
       let token = respuesta.valor;
       window.localStorage.setItem("token", token as string);
-      //window.location.href = '/barraNegocio';
-      window.location.href = '/listarCaracteristica';
+      window.sessionStorage.setItem("token", token as string);
+      window.location.href = '/barraNegocio';
+      //window.location.href = '/barraTamano';
+
     });
 
   }

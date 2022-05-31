@@ -50,5 +50,4 @@ export class CaracteristicaListarComponent  {
       this.caracteristicaSerive.getAllTamano;
     })
   }
-
 }
